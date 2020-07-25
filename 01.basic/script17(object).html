@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 자바스크립트 객체는 {} 표기하고, 키와 값을 쌍으로 지니는 형태입니다. 
+        // 1. 자바스크립트 객체는 . 을 찍어서 접근
+        // 2. 객체는 ["키"] 로 접근
+
+        console.log("++++++++++++++ (name,age,arr[]) of Concept++++++++++++++")
+        var person = {name: "홍길동", age:20, arr:[1,2,3]};
+        console.log(person);        //{name: "홍길동", age: 20, arr: Array(3)}
+        console.log(person.name);   //홍길동  ... 보통 편하게 하는 방법 
+        console.log(person.age);    // 20
+        console.log(person.arr);    // (3) [1, 2, 3]
+        console.log(person.arr[0]); // arr 의 0번째는 1
+        console.log(person["name"]);
+        console.log(person["age"]);
+        console.log(person["arr"][1]); // arr의 1번째는 2
+
+        // 객체안에 객체
+        console.log("+++++++홍길동의 성적표+++++++")
+        var exam = {kor:90 , eng:80, math:75}
+        var kim = {name:"홍길동" , exam: exam}
+
+        console.log(kim);
+        console.log("성명: "+kim.name);
+        console.log("과목별 점수:"+kim.exam);
+        //      결과값: [object Object]
+        console.log("과목별 점수:"+kim.exam.exam);
+        //      결과값: undefined
+        console.log("국어점수: "+kim.exam.kor);
+        console.log("영어점수: "+kim.exam.eng);
+        console.log("수학점수: "+kim.exam.math);
+        console.log("++++++++++++++++");
+        console.log("성명: "+kim["name"]);
+        console.log("국어점수: "+kim["exam"]["kor"]);
+        console.log("영어점수: "+kim["exam"]["eng"]);
+        console.log("수학점수: "+kim["exam"]["math"]);
+
+        // 배열안에 객체 (많이 사용되는 형태)
+
+        console.log("++++++++++배열안에 객체 (많이 사용되는 형태)++++++++++++");
+        var arr = [
+            {id:1, title:"hi" , content:"헐"},
+            {id:2, title:"bye", content:"헠"},
+            {id:3, title:"hello", content:"huck"}
+        ]
+        console.log(arr);
+        console.log(arr[0]);
+        console.log("id: "+arr[0]["id"]);
+        console.log("title: "+arr[0]["title"]);
+        console.log("content: "+arr[0]["content"]);
+      
+      // 객체와 반복문 
+
+        console.log("--------------------객체와 반복문 ------------------")
+        for (var i= 0; i<arr.length; i++){
+            /*         console.log(arr); */
+        console.log(arr[i]);
+
+
+        }
+        console.log("+++++++++++++++++++++++++");
+
+        for (var i= 0; i<arr.length; i++){
+            /*         console.log(arr); */
+        console.log("id: "+arr[i]["id"]);
+        }
+
+
+
+
+
+        //===== arr 2 객체 =================//
+
+        var arr2= [
+        { 
+                name:"홍길동",
+                age: 20,
+                subject:["자바","JSP","SPRING"],
+                birth:20200101
+        },
+        { 
+                name:"이순신",
+                age: 30,
+                subject:["CSS","SCRICT","C"],
+                birth:20200101
+        }
+        ]
+/*         console.log(arr2);
+        console.log(arr2[0].subject[0]);
+        console.log(arr2[0].subject[1]);
+        console.log("++==++=="); */
+
+        for (var i=0; i<arr2.length; i++ ) {
+            
+/*             console.log(arr2[i]);       */    
+            for (var j= 0; j<arr2[i].subject.length; j++){ 
+        // j<arr2[i].subject.length; 조건 잘세우기
+            console.log(arr2[i].subject[j]);
+           
+ 
+        }
+        console.log("_+_+_+_+_+");
+        }
+
+        console.log('[{name:"홍길동"},{name:"이순신"}]')
+
+
+
+    </script>
+
+</body>
+</html>

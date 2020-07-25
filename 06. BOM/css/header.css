@@ -1,0 +1,38 @@
+   /* 디자인을 시작하기 전에 웹폰트와 초기화 선언 To embed a font, copy the code into the <head> of your 
+
+<link>@import*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+
+* { padding: 0;  margin: 0; box-sizing: border-box;  }
+    
+/* CSS rules to specify families 안에다가 */
+body, html {   width: 100%; font-family: 'Black Han Sans', sans-serif;}
+img {   max-width: 100%;       height: auto;  }
+ul, li{   list-style: none;  } 
+.input, textarea, select, button {-moz-appearance: none; -webkit-appearance: none;}
+.btn {border-radius: 10px;}
+
+/* section */
+section {margin-top: 50px;}
+
+/* header */
+header{position: fixed; top: 0; left: 0; z-index: 10; width: 100%;} /* headr에 같이 따라오게함 */
+.navbar  {background-color: black; border-radius: 0px ; margin: 0px;}
+.naver-board{padding: 10px;}
+.nav a {color: rgb(255, 255, 255);}
+
+ /* a 호버와 포커스서 가상선택자 변경 */
+.nav > li >a:hover, .nav > li >a:focus {background-color: #304047;}    
+
+/* 드룹다운 메뉴 호버와 포커스시 가상선택자  */    
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus 
+{color: thistle;    background-color: transparent;}
+.navbar-toggle {border-color: rgb(10, 145, 145) ;}
+.navbar-toggle .icon-bar { background-color: rgb(161, 46, 46);}
+
+footer {  background-color: black; margin-top: 50px; }
+footer .footer-menu {text-align: center;  }
+footer .footer-menu li {display: inline-block; padding: 10px 15px;  }  
+footer .footer-menu li a {text-decoration: none; color: blanchedalmond;  }
+footer .copyright address{text-align: center;}
+footer .copyright {margin: 0 auto; float: none; color: orange; text-align: center; }

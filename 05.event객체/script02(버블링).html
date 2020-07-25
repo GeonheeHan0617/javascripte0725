@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul class="parent">
+            <li>1.홍길동</li>
+            <li>2.이순신</li>
+            <li>3.김길자</li>
+            <li>4.고길장</li>
+            <li>5.Mr.kim</li>
+        </ul>
+    </div>
+
+    
+선택된 태그값: <p class="result"></p>
+
+    <script>
+        // 이벤트 버블링 이란 , 부모에 곁에 놓은 이벤트가 자식에도 전파되는 특성
+        var result = document.querySelector(".parent");
+        var result = document.querySelector(".result")
+        parent.onclick = function () {
+        /*     console.log("wow?"); */ //전체적으로 클릭됨
+      /*   //  버블링을 사용할 때 부모를 클릭해도 적용되는 문제를 해결
+        console.log(event.target); //이벤트가 작용된 타겟
+        console.log(event.currentTarget); //이벤트가 걸려있는 타겟 */
+
+            if(event.target.tagName !== "LI") return;
+
+            result.innerHTML = event.target.innerHTML;
+
+
+       /*      console.dir(event.target); //확인해보기
+            console.log(event.target.tagName); */
+        }
+    </script>
+
+</body>
+</html>

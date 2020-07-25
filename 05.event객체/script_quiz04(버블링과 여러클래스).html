@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .mainTable{border-collapse: collapse; width: 100%; text-align: center;}
+         thead tr th,
+         tbody tr td {
+             border: 2px solid black;
+         }
+    </style>
+
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>과목</th>
+                <th>당담교수</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody class="tableList">
+            <tr>
+                <td>1</td>
+                <td>강남응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험결과</button>
+                    <button type="button" class="btn-default scoreInfo">성적관리</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>종로응용자바</td>
+                <td>종로짱</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험결과</button>
+                    <button type="button" class="btn-default scoreInfo">성적관리</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>홍대응용자바</td>
+                <td>홍대짱</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험결과</button>
+                    <button type="button" class="btn-default scoreInfo">성적관리</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        /* 1.버블링으로 이벤트를 걸고, testInfo라면 "시험기본정보..." 출력
+        testInput이라면 "시험출제..."
+        testResult라면 "시험결과..."
+        scoreInfo 라면 "성적관리..."
+        형식으로 출력이 되도록 이벤트 처리하기*/
+
+        var mainTable= document.querySelector(".mainTable");
+        var tableList = document.querySelector(".tableList");
+
+        
+        tableList.onclick = function() {
+              /*          console.log("DFSsfd"); */ 
+            /* console.dir(event.target); */ 
+
+            if(event.target.tagName!== "BUTTON" ) { //버튼이 아니면 클릭 표시 안됨
+                return;  console.log(event.target);
+            }else if (event.target.classList.contains("testInfo")){
+            /*     console.log(event.target); */ //시험기본정보 버튼확인
+                console.log("시험기본정보");
+            }else if (event.target.classList.contains("testInput")) {
+              /*   console.log(event.target); */
+                console.log("시험출제");
+            }else if (event.target.classList.contains("testResult")){
+             /*    console.log(event.target); */
+                console.log("시험결과");
+            }else if (event.target.classList.contains("scoreInfo")){
+                /* console.log(event.target); */
+                console.log("성적관리");
+            }
+
+
+         /*    console.log("DFSsfd");// 버튼일 때만 표시됨 */
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        ul li {list-style: none; display: inline-block; border: 1px solid #333; padding:15px 20px; cursor: pointer;}
+        .toggle-menu {display: none;}
+        .active {display: block; animation: fadeIn 2s linear; color: lightgreen;}
+        @keyframes fadeIn {
+          from {
+              opacity: 0;
+                color: darkviolet;
+           } to {
+                opacity: 1;
+                color: aquamarine;;
+            }
+          }
+    </style>
+
+</head>
+<body>
+
+
+<h3> 토글 명 </h3>
+
+<section> 
+    <ul class="toggle">
+        <li data-id="#toggle1">메뉴1</li>
+        <li data-id="#toggle2">메뉴2</li>
+        <li data-id="#toggle3">메뉴3</li>
+        <li data-id="#toggle4">메뉴4</li>
+        <li data-id="#toggle5">메뉴5</li>
+        <li data-id="#toggle6">메뉴6</li>
+    </ul>
+    <div class="toggle-menu active" id="toggle1"> <!-- active는 다른 메뉴 제외하고 active만 보여줌 
+    active가 없으면 처음 화면에서 안보임.-->
+        토글메뉴1
+    </div>
+    <div class="toggle-menu" id="toggle2">
+        토글메뉴2
+    </div>
+    <div class="toggle-menu" id="toggle3">
+        토글메뉴3
+    </div>
+    <div class="toggle-menu" id="toggle4">
+        토글메뉴4
+    </div>
+    <div class="toggle-menu" id="toggle5">
+        토글메뉴5
+    </div>
+    <div class="toggle-menu" id="toggle6">
+        토글메뉴6
+    </div>
+    
+</section>
+
+<script>
+    /* 
+
+    //** 삭제와 추가를 같이하게 됨
+    1. ul에 이벤트 버블링을 이용해서 클릭이벤트를 걸고 클릭되는 타겟의 data-id 를 얻습니다. 완성
+    2.  toggle-menu의 active속성을 삭제
+    3. data-id의 값에 알맞는 태그에 active속성을 추가하면 됩니다. */
+    var toggle = document.querySelector(".toggle");  //o
+    var toggleList = document.querySelectorAll(".toggle-menu"); // querySelectorAll과".toggle-menu"작성하는 이유는
+    //1개 씩만 보여주기 위해서 이렇게 표시함.
+   
+    toggle.onclick = function() {
+        /* console.log("Ddd"); */
+       /*  console.dir(event.target); */
+  /*      console.log(event.target.dataset.id); */ //# toggle 번호
+        if(event.target.tagName !== "LI") return;  //o {}주의 하기
+        /* console.log(event.target.tagName);  */
+        /* console.dir(event.target.dataset.id);  */ 
+        console.log(toggleList);
+        for(var i = 0; i<toggleList.length; i++) {
+            if(toggleList[i].classList.contains("active")){ //active를 포함한다면
+                toggleList[i].classList.remove("active");
+            }
+        }
+        /* console.log(target); */
+
+/*       console.dir(document.querySelector(target).className); */
+     /*    document.querySelector(target).className = "active";  */// 여기까지 생각 못함.
+
+      // active 속성 추가하기         
+        var target = event.target.dataset.id;
+        document.querySelector(target).classList.add("active");
+     
+    
+
+    }
+  
+
+
+</script>
+
+
+</body>
+</html>

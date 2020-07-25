@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="js/kakao.js"></script>
+</head>
+<body>
+
+
+    <from action ="#" class="loginForm" method="post">
+        아이디: <input type="text" name="id"> <br>
+        비밀번호: <input type="text" name="pw"> <br>
+
+        <input type="hidden" name="email">
+        <input type="hidden" name="name">
+
+        <button type="submit">로그인</button>
+
+    </from>
+
+    <!-- 카카오 로그인 팝업창 -->
+    <a id="custom-login-btn" href="javascript:loginWithKakao()">
+        <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+          width="222"
+        />
+      </a>
+
+      <!-- 로그아웃 -->
+
+      <button class="api-btn" onclick="kakaoLogout()">로그아웃</button>
+
+<script type="text/javascript">
+    // 카카오 초기화
+    //JavaScript 키
+    Kakao.init('4595112e4276e13af992a3b5e89564bd');
+    console.log(Kakao.isInitialized());
+
+    //로그인
+    function loginWithKakao() {
+            Kakao.Auth.login({ // login 과 loginForm
+                success: function (authObj) {
+                    getInfo();
+                },
+                fail: function (err) {
+                    alert(JSON.stringify(err))
+                },
+                
+                /* success: function (authObj) { */
+                /* Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function (res) {
+                        console.log(res);
+                    alert(JSON.stringify(res)) 
+                    },
+                    fail: function (error) {
+                        alert(
+                            'login success, but failed to request user information: ' +
+                            JSON.stringify(error)
+                        )*/
+                /*   fail: function (err) {
+   alert('failed to login: ' + JSON.stringify(err)) */
+            })
+        }
+
+// 3. 사용자 정보 얻기
+    function getInfo() {
+            Kakao.API.request({
+                url: '/v2/user/me',
+                success: function (res) {
+                    alert(JSON.stringify(res))
+                    console.log(res);
+                    //다음 코드 
+                    //id
+                    var id =res.id;
+                     //이메일
+                    var email = res.kakao_account.email;
+                    //이름
+                    var name = res.kakao_account.profile.nickname;
+                    // 프로필사진
+                    var profile_img = res.kakao_account.profile.profile_image_url;
+
+                    /* console.log(id,email,name,profile_img);  */  //출력됨.
+ 
+                    document.loginForm.action ="XX"; 
+
+                    document.loginForm.id.value = id;
+
+                    document.loginForm.email.value = email;
+
+                    document.loginForm.name.value =name;
+
+                    document.loginForm.submit();
+                }, 
+                fail: function (error) {
+                    alert(' 사용자 요청 정보에 실패했습니다. 동의 항목을 확인하세요 ' +
+                    JSON.stringify(error))
+                },
+            })
+
+    }
+
+        //4. 로그아웃
+        function kakaoLogout() {
+            if (!Kakao.Auth.getAccessToken()) {
+                alert('로그인이 되어 있지 않습니다.')
+                return
+            }
+            Kakao.Auth.logout(function () {
+                alert('로그아웃이 되었습니다. \n 다음에 또 와주세요!!' + Kakao.Auth.getAccessToken())
+            })
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {border-collapse: collapse ; border-spacing: 0 ;} 
+        thead tr th,
+        tbody tr td{border:  2px solid #777;}
+        thead tr th p {margin: auto;height: 100%;}
+    </style>
+</head>
+<body>
+
+    <button type="button" id = "del">일괄 삭제</button>
+
+    <table>
+        <thead>
+            <tr>
+            <th><p>전체선택<input type="checkbox" class="allCheck"></p></th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1번선택 <input type="checkbox" class="check"></td> <!--${}사용가능항  -->
+                <td>1</td>
+                <td>홍길자</td>
+                <td>안녕</td>
+                <td>2020-01-01</td>
+            </tr> <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>2</td>
+                <td>윤승아</td>
+                <td>안녕 반가워</td>
+                <td>2020-02-01</td>
+            </tr> <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>3</td>
+                <td>이승기</td>
+                <td>거기 어디야</td>
+                <td>2020-03-01</td>
+            </tr> <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>4</td>
+                <td>임창정</td>
+                <td>안가!! </td>
+                <td>2020-04-01</td>
+            </tr> <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>5</td>
+                <td>임윤아</td>
+                <td>how are you?</td>
+                <td>2020-05-01</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        var del = document.getElementById("del");
+        var list = document.querySelectorAll(".check");
+     
+        del.onclick = function () {
+             /*    console.log(list[0].checked); 
+                console.log(list[0].list)  ; */
+            /*        console.log(list); */
+             for(var i = 0 ; i < list.length; i++) {
+
+                if(list[i].checked) {  //list [i] 를 지우는 것이 아닌
+                    /* list[i].remove() ; // remove 만 사용하면 checkbox만 삭제됨 */
+                    list[i].parentElement.parentElement.remove() ; // 해당된 행을 자신을 삭제함 
+            }
+        }
+    }
+        //일괄 선택
+        var allCheck = document.querySelector(".allCheck");
+        allCheck.onclick = function () {
+          /*   console.log(list[0].checked); */
+
+            if(allCheck.checked) {
+
+        
+
+            for(var i = 0 ; i<list.length; i++ ){
+                list[i].checked = true;
+
+                }
+            }else {
+                for(var i =0 ; i<list.length; i++ ){
+                    list[i].checked =false;
+                }
+            }
+            // class 속성변경
+            allCheck.class = "hgf";
+        }
+
+        class Test{ //javascript class 
+
+        }
+
+    </script>
+    
+</body>
+</html>

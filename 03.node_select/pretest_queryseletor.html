@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        window.onload = function() {
+
+            var li = document.querySelector(".box1 ul li");
+            var btn1 = document.querySelector("#btn1");
+            btn1.onclick =function() {
+                console.log(li);
+        
+                li.innerHTML ="쿼리selector";
+         
+            }
+        }
+
+    </script>
+
+    <button id="btn1">쿼리Selector</button>
+    <div class="box1"> 
+        <ul>
+            <li>hola</li>
+            <li>hello</li>
+            <li>안녕</li>
+        </ul>
+    </div>
+    <button id="btn2">쿼리Selector2</button>
+    <div class="box2">
+        <ul>
+            <li>Mr.kim</li>
+            <li>allen</li>
+            <li>나</li>
+        </ul>
+    </div>
+    
+</body>
+</html>

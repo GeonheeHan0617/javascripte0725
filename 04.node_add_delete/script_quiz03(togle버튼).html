@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .center {text-align: center;}
+        .content {
+            overflow: hidden; 
+            border:1px solid #777; 
+            width: 80%; 
+            margin: 0 auto; 
+            padding: 5px;
+            
+        }
+
+        .content .left,
+        .content .right {
+            float: left;
+            width:50%;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .left .inner,
+        .right .inner {
+            border: 1px solid #777;
+            height: 300px;
+        }    
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="center">
+            <h2>Toggle Testing</h2>
+
+
+            <button id="btn1" class="dark">어둡게</button>
+            <button id="btn2" class="summary">내용보기</button>
+            <button id="btn3" class="write">사진보기</button>
+            
+            <!--추가-->
+            <hr>
+        </div>
+    </header>
+ 
+    <section>
+        <div class="content">
+            <div class="left">
+                <div class="inner">
+    
+                    <img src="profile.png"> </div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                    <p> 프로그램 코드 참고 해보기 </p>
+                    <a href="https://www.w3schools.com/">w3schools</a>
+                </div>
+            </div>            
+        </div>
+    </section>
+    
+    <script>
+        // 야간&주간모든 변경
+        var btn1 = document.getElementById("btn1");
+        var body = document.querySelector("body");
+        var all = document.querySelectorAll("p, h2, a");
+
+  
+
+        btn1.onclick = function() {
+     
+            if(btn1.className == "dark"){
+              
+               document.body.style.backgroundColor = "black";
+           /*      document.body.style.color="white";  */
+                for(var i =0; i< all.length; i++) {
+                    all[i].style.color = "white";
+                } 
+
+                /* console.dir(btn1);  */
+                btn1.innerHTML ="밝게보기";
+                btn1.className ="white";
+
+            } else {
+                document.body.style.backgroundColor = "white"; 
+              for(var i =0; i< all.length; i++) {
+                    all[i].style.color = "black";
+                } 
+               /*   document.body.style.color="black";  */
+               /*  console.dir(btn1); */
+                btn1.innerHTML="야간모드";
+                btn1.className="dark";
+            }
+        }
+  
+      
+    var btn2 = document.getElementById("btn2");
+    var content = document.querySelector(".inner > p");
+    var a = document.querySelector(".inner > a");
+    btn2.onclick = function () {
+           console.dir(btn2);
+
+        if(btn2.className === "summary"){
+                
+             
+            content.innerHTML ="홍길순<br> 능력단위:java,oracel,jsp,css,javascript";
+            a.style.diaplay = "none";
+            btn2.innerHTML ="내용보기";
+            btn2.className ="cont";    
+               /*  document.querySelector(".content").appendChild(".inner"); */ 
+        }else{
+
+            content.innerHTML ="프로그램 코드 참고해보기";
+            a.style.diaplay = "none";
+            btn2.innerHTML ="이름보기";
+            btn2.className ="summary";
+        } 
+    }
+    
+        var btn3 = document.getElementById("btn3");
+
+        btn3.onclick = function () {
+            var inner = document.querySelector(".left > .inner");
+            console.log(inner);
+            console.log(inner.children);
+
+            // 태그가 지워지면서 index가 당겨져오기 때문에 i 에 증가를 없이 0번째 까지 만 삭제  
+            for (var i = 0; i < inner.children.length; /* i++ */) { // i++ 증가값은  영향이 있음
+                inner.removeChild(inner.children[i]);//삭제
+            }
+
+            if (btn3.className == "write") {
+                // 자식태그 삭제.
+                var textarea = document.createElement("textarea");
+                var button = document.createElement("button");
+                textarea.style.width = "100%";
+                textarea.style.height = "100px";
+                textarea.style.boxSizing = "border-box";
+                textarea.style.resize = "vertical";
+                
+                button.innerHTML ="등록";
+
+                
+                inner.appendChild(textarea);
+                inner.appendChild(button);
+
+            
+              /*   var bt = document.createElement("button");
+                bt.innerHTML="sdf";
+                inner.appendChild
+                inner.appendChild(document.createElement("a").innerHTML ="testing")
+                document.createElement("a");  */
+
+                btn3.innerHTML = "사진보기";
+                btn3.className = "picture";
+            }else { 
+                var img = document.createElement("img");
+                img.src = "profile.png";
+                inner.appendChild(img);
+
+                btn3.innerHTML = "매모장보기";
+                btn3.className ="write";
+
+            }
+        }
+    
+ 
+    </script>   
+    
+    
+
+</body>
+</html>

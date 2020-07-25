@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {border-collapse:collapse ; border-spacing:0 ;}
+        table tr td{border: 2px solid #777777; }
+    </style>
+
+</head>
+<body>
+
+
+    <h3> 버블링 코드로 변경</h3>
+
+    <div >
+        <ul class="imgList">
+            <li><img src="img/1.jpg" alt= "1" width="100" ></li> <br>
+            <li><img src="img/2.jpg" alt= "1" width="100" ></li><br>
+            <li><img src="img/3.jpg" alt= "1" width="100" ></li><br>
+            <li><img src="img/4.jpg" alt= "1" width="100" ></li><br>
+        </ul>
+    </div>
+    <div class="result">
+        <img src="img/1.jpg" alt="결과" width="300">
+    </div>
+    
+<hr>
+
+<h2>버블링 코드로 변경</h2>
+    <table  class="list1">
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>내용</td>
+            <td>식제</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>첫글</td>
+            <td>hi</td>
+            <td><button type="button" class="btn del" > 삭제</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>첫글</td>
+            <td>hi</td>
+            <td><button  type="button" class="btn del" >삭제</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>첫글</td>
+            <td>hi</td>
+            <td><button type="button"class="btn del" >삭제</button></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>첫글</td>
+            <td>hi</td>
+            <td><button type="button" class="btn del">삭제</button></td>
+        </tr>
+    </table>
+
+    <script>
+        var imgList = document.querySelector(".imgList");
+        var result = document.querySelector(".result img");
+       
+         imgList.onclick = function() {
+            /* console.log("dd"); */  //첫번째 확인 -> 이미지 다 동작됨
+
+       
+
+        if(event.target.tagName !== "IMG") return;  //IMG는 이미지 만 선택 되게 함
+        result.src = event.target.src; // 이미지 번경되게 선태하게 하는 버튼
+        }
+        var list1 = document.querySelector(".list1");
+        list1.onclick =function() {
+            if(event.target.tagName !== "BUTTON") return;
+            event.target.parentElement.parentElement.remove();
+        }
+
+
+
+    </script>
+    
+
+    
+</body>
+</html>

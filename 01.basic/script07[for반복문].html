@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //for문 
+        for(var i =1; i<=10; i++){
+            console.log(i);
+        }
+        console.log("+++++++++++++++++++++++");
+        // 배열과 반복문 
+        var arr = new Array(10);
+        for (var i = 0; i<arr.length; i++ ){
+            arr[i] = i+1; // +1 하는 이유는 arr 배열상 0부터 시작함.
+        }
+        console.log(arr);
+
+        console.log("+++++++++++++++++++++++");
+
+
+        var arr2 =new Array();
+            for(var i = 0; i<10; i++) {
+                arr2.push(i);
+            
+        }
+        console.log(arr2);
+        console.log("+++++++++++++++++++++++"); 
+        // 배열의 사용 
+
+        for(var i =0; i< arr.length; i++){
+            console.log(arr[i]);
+        }
+
+        console.log("+++++++++++++++++++++++"); 
+
+
+
+        // 2단 부터 9단 까지 브라우져로 추가하세요!!
+        for(var i = 2; i<=9; i++){
+            for(var j = 1; j<=9;j++){
+           /*     console.log(i+"X"+j+"="+i*j +"<br>");   */ //F12로 개발자도구 console 창으로만 출력
+                document.write(i+"X"+j+"="+i*j +"<br>")  // 브라우저 창으로 출력
+            }
+        }
+        
+
+    </script>
+
+</body>
+</html>

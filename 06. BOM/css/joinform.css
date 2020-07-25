@@ -1,0 +1,14 @@
+
+.titlebox{width: 250px; text-align: center; height: 40px; line-height: 40px; 
+        margin: 70px auto; border-top: 1px solid #e1e1e1; border-bottom: 1px solid  #e1e1e1  ;}  
+        .join-form{margin: 0 auto; float: none;} /* 가운데 정렬 */
+        /* 박스 쉐도우: 그림자가 가로로 떨어진 간격, 세로로 떨어진 간격, 흐릿도 정도, 그림자 색상 */
+        .join-form form{box-shadow: 0px 8px 16px #00da6d ; padding: 50px;}
+        
+        
+        @media(max-width: 767PX) { 
+                .join-form{padding: 50px 10px;}
+        }
+
+        .form-control {border-radius: 0px; } /* 윤곽 */
+        .form-control:focus{border-color: #555555 ;}

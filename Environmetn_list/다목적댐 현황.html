@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div>
+        <h2>Corona19 Overcome</h2>
+    </div>
+    <div class="coronaList">
+
+    </div>
+
+
+    <script>
+
+  
+// 현재 위도 경도값 가져오기
+//위도: 37.499699199999995
+// 경도: 127.02842880000001
+        fetch ("https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?lat=37.499699199999995&lng=127.02842880000001&m=1000").then(function(response) {
+            if(response.status !== 200) {
+                alert("서버와 통신이 연결이 실패했습니다.");
+                return;
+            }else {
+                return response.json();
+            }
+        }).then(function(jsondata){
+             console.log(jsondata); 
+            //  console.log(jsondata.stores);  
+            //  console.log(jsondata.stores);
+
+            var List = jsondata.stores;
+            var coronaList = document.querySelector(".coronaList");
+
+        }) 
+
+    </script>
+    
+</body>
+</html>

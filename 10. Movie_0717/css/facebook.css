@@ -1,0 +1,26 @@
+
+
+    
+    @media (max-width: 767px) {.aside-menu{display: none;}}
+    .aside-inner {margin-top: 30px;}
+    .aside-inner ul li a{text-decoration: none ; color: black;}
+
+    .section-inner .text-content textarea{height: 50px; transition: height 0.5s ease-in-out;}
+    .section-inner .text-content textarea:focus{height: 150px;}
+    .section-inner .text-group {overflow: hidden;}
+    .section-inner .text-group .left {float: left;}
+    .section-inner .text-group .right {float: right;}
+
+    .title-inner {padding : 20px 0}
+    .title-inner p {margin: 0;}
+    .title-inner {position: relative; margin-top:20px ;} /* 부모영역 */
+    .title-inner .profile{position: absolute; top:0x; left: 0px;}
+    .title-inner .title {padding-left: 50px; }
+
+    .content-inner {padding: 10px 0;}
+
+    .like-inner {padding: 10px 0 ; border-top: 1px solid rgb(189, 189, 194) ; border-bottom:1px #111; margin-top: 10px;}
+    
+    .link-inner {overflow: hidden; padding: 10px 0; border-bottom: 1px solid #ddd; }
+    .link-inner a {float: left; width: 33.3333%; text-align: center;}
+    .link-inner i {margin: 5px;}

@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+     @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          height: auto;
+        }
+      }
+        *{
+        padding: 0;
+        margin: 0;
+         }
+     
+        header, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header, a{ 
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        .menu-1{
+            text-align: center;
+        }
+        .menu-1 ul{
+            background-color: #dfdfdf;
+        
+
+        }
+        .menu-1 > ul {
+            background-color: grey ;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 0 10;
+            
+        }
+        .menu-1 > ul >li {
+            display: inline-block;
+       
+        }
+
+        .menu-1 li> a {
+            /* background-color: red;  */
+            padding: 10px;
+            display: block;
+        }
+        .menu-1 li:hover >a {
+            background-color: black;
+            color: yellow;
+        }
+        .menu-1 li {
+            position: relative;
+        
+        }
+        .menu-1 ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+        .menu-1 li:hover>ul {
+            display: block;
+        }
+
+         /* nav.menu-1>ul> li*4 >a[href=#] {메뉴아이템 $} + ul*4>a[href=#]{2차 메뉴 아이템$} */
+
+    </style>
+
+    
+</head>
+<body>
+
+    <nav class="menu-1"> 
+        <ul>
+            <li><a href="#">영화</a>
+                <ul>
+                    <li><a href="#">무비차트</a></li>
+                    <li><a href="#">감상평</a></li>             
+                </ul>
+            </li>
+            <li><a href="#">예매</a>
+                <ul>
+                    <li><a href="#">상영시간표</a></li>             
+                </ul>
+            </li>
+            <li><a href="#">극장</a>
+                <ul>
+                    <li><a href="#">서울</a></li>
+                    <li><a href="#">경기</a></li>
+                </ul>
+            </li>
+            <li><a href="#">이벤트</a>
+                <ul>
+                    <li><a href="#">포인트</a></li>
+                    <li><a href="#">맴버쉽</a></li>
+                    
+                </ul>
+            </li>
+            <li><a href="#">스토어</a>
+                <ul>
+                    <li><a href="#">팝콘+스낵</a></li>
+                    
+                </ul>
+            </li>
+           
+        </ul>
+       
+
+    </nav>
+  
+    <script>
+      
+    </script>
+
+
+</body>
+</html>

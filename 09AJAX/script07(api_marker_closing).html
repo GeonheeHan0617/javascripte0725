@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #map {
+            height: 90%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2> 공적 마스크 판매 API 테스트</h2>
+
+    <div id="map"></div>
+    <script>
+        var map;
+        //Map 화면 보여주는 곳
+        //initMap 지움
+
+
+        //위치정보 성공함수
+        function ajax(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            /*  console.log(lat, lng); */
+
+
+            // lat ,lng 좌표값 주는 곳 ,&m=반경 m값
+            fetch(`https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?lat=${lat}&lng=${lng}&m=59900`).then(function (response) {
+                if (response.status !== 200) {
+                    alert("서버와 통신이 연결이 실패했습니다.");
+                    return;
+                } else {
+                    return response.json();
+                }
+            }).then(function (jsondata) {
+                /* console.log(jsondata); 
+                console.log(jsondata.stores);  */
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 13,
+                    center: new google.maps.LatLng(lat, lng) // 기준값 값변경함
+
+                });
+                var script = document.createElement('script');
+                // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+                //https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/js
+
+                // 
+                script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+                document.getElementsByTagName('head')[0].appendChild(script);  //표시를 해줌
+
+                // 지도에 좌표를 찍어주는 코드
+                window.eqfeed_callback = function (results) {
+
+
+                    // 지도에 좌표를 찍어주는 코드
+                    /*        console.log(results); */
+
+
+                    //첫번째 방법
+                    var data = jsondata.stores;
+
+                    for (var i = 0; i < data.length; i++) {
+                        
+                        //console.log(jsondata)
+                        var latLng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        console.log(data);
+                        //Marker 찍히는 곳
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            title: data[i].addr + "\n" + data[i].name + "\n" + 
+                            (function () {
+                                if (data[i].type ==="01" ){
+                                    return "약국";
+                                }else if (data[i].type === "02") {
+                                    return "우체국";
+                                }else {
+                                    return "농협";
+                                }
+                            }) () + "\n"+
+                                // 즉시실행 함수로 재고개수 확인하기
+                                (function () {
+                                    if (data[i].remain_stat === "plenty") {
+                                        return "100개 이상";
+
+                                    } else if (data[i].remain_stat === "some") {
+                                        return "30~100개 사이";
+
+                                    } else if (data[i].remain_stat === "few") {
+                                        return "2~30개 미만";
+
+                                    } else if (data[i].remain_stat === "empty"){
+                                        return "1개 있거나 재고없음";
+
+                                    } else {
+                                        return "재고 없음";
+                                    }
+                                })()
+                            //data[i].remain_stat
+                            //두번째 방법
+                            /*   for (var i of jsondata.stores) {
+                            console.log(stores); 
+                                  // var coords = results.features[i].geometry.coordinates;
+                                 console.log(jsondata);
+                                  console.log(i.lat, i.lng);  // 좌표값 수정
+          
+                                  var latLng = new google.maps.LatLng(i.lat, i.lng);
+          
+                                  //Marker 찍히는 곳
+                                  var marker = new google.maps.Marker({
+          
+                                      position: latLng,
+                                      map: map */
+                        });
+                    }
+                }
+
+            })
+        }
+
+        //위치정보 실해함수
+        function coorFail() {
+            alert("위치정보 수신에 동의해야 합니다.");
+        }
+
+        (function () {
+            /*  console.dir(navigator); 
+              console.log(navigator.appName);  */ // 접속한 브라우저 정보
+            navigator.geolocation.getCurrentPosition(ajax, coorFail);
+        })();
+
+
+        function initMap() {
+            navigator.geolocation.getCurrentPosition(ajax, coorFail);
+        }
+
+    </script>
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcnAjF8iv_cC41hYEb20Iqs4cfGng-zzw&callback=initMap">
+    </script>
+
+
+</body>
+
+</html>

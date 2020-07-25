@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="popup.js"></script>
+
+
+</head>
+<body>
+    
+    <div>
+        내용... 
+    </div>
+
+    오늘하루 이창을 열지 않기 <input type="checkbox" >
+
+    <script>
+
+        var box = document.querySelector("input[type='checkbox']");
+        box.onclick = function() {
+
+          /*   console.log(box); */
+            
+            if(box.checked) {
+                createCookie("mainPopup"); // 쿠키메서드 생성
+               window.close(); // 팝업종료    
+            }
+        }
+
+
+        // quiz_cookies 01 . 
+        // 쿠키 생성 함수 () - 매개변수를 받아서
+        // 해당 이름으로 1일간 유지되는 쿠키를 생성
+   /*      function createCookie(name) {
+            
+            var date = new Date (); //날짜 생성
+            date.setDate( date.getDate() +1); // 현재일자 +1 
+
+            var cookie = ""; // 쿠키 문자열
+            cookie += name + "=" +"true;";
+            cookie += "expires=" + date.toUTCString;
+
+            console.log(cookie);
+
+            document.cookie = cookie; // 종료확인해주기
+
+        } */
+
+
+
+  
+
+    </script>
+
+</body>
+</html>

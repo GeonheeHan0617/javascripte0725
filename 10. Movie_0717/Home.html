@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+
+    <!-- j쿼리 순서 추가 (순서변동) -->
+    <!-- 순서 바꾸면 동작됨 -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- boardstyle -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    
+<style>
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+   /* @media screen and (max-width: 600px) {
+         .column {
+          width: 100%;
+          height: auto;
+        }
+      }
+        
+        body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}*/
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            TOP: -5PX;
+        }
+        .carousel-inner>.item>a>img,
+        .carousel-inner>.item>img,
+        .img-responsive,
+        .thumbnail a>img,
+        .thumbnail>img {
+            display: inline;
+        }
+      .carousel-indicators .active {
+            width: 13.5px;
+            height: 13.5px;
+            margin: 0;
+            background-color: #fff;
+        }
+        button {
+            overflow: visible;
+            z-index: 1;
+        }
+
+        button, html input[type="button"], input[type="reset"], input[type="submit"] {
+            -webkit-appearance: button;
+            cursor: pointer;
+        }
+        .carousel-control {
+            width: 6.5%;
+            font-size: 30px;
+        }
+        .bando1{
+            text-shadow: 0 1px 2px rgba(0,0,0,.6);
+        }
+        */
+        /*(header)*/
+  
+           /* @media screen and (max-width: 100%) {
+               .column {
+                 width: 100%;
+                 height: 100%;
+               }
+             }
+
+        /* header */
+        
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+          
+          .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          .dropdown {
+            float: left;
+            overflow: hidden;
+          }
+          
+          .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+          }
+          
+          .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+          }
+          
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+          }
+          
+          .dropdown-content .header {
+            background: red;
+            padding: 16px;
+            color: white;
+          }
+          
+          .dropdown:hover .dropdown-content {
+            display: block;
+          }
+          
+          /* Create three equal columns that floats next to each other */
+          .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            background-color: #ccc;
+            height: 250px;
+          }
+          
+          .column a {
+            float: none;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+          }
+          
+          .column a:hover {
+            background-color: #ddd;
+          }
+          
+          /* Clear floats after the columns */
+          .row:after {
+            content: "";
+            display: table;
+            clear: both;
+          }  
+      
+          /* Clear floats after the columns */
+          .row:after {
+          content: "";
+          display: table;
+          clear: both;
+          }
+      
+          .carousel-inner>.item>a>img,
+          .carousel-inner>.item>img,
+          .img-responsive,
+          .thumbnail a>img,
+          .thumbnail>img {
+                  display: inline;
+              }
+          .dropdown .dropbtn {
+              font-size: 16px;
+              border: none;
+              outline: none;
+              color: white;
+              padding: 14px 16px;
+              background-color: inherit;
+              font: inherit;
+              margin: 0;
+          }
+          .dropdown .dropbtn {
+              font-size: 16px;
+              border: none;
+              outline: none;
+              color: white;
+              padding: 14px 16px;
+              background-color: inherit;
+              font: inherit;
+              margin: 0;
+          }
+          button, input, select, textarea {
+              font-family: inherit;
+              font-size: inherit;
+              line-height: inherit;
+          }
+          button, html input[type=button], input[type=reset], input[type=submit] {
+              -webkit-appearance: button;
+              cursor: pointer;
+          }
+          button, select {
+              text-transform: none;
+          }
+          button {
+              overflow: visible;
+          }
+          button, input, optgroup, select, textarea {
+              color: inherit;
+              font: inherit;
+              margin: 0;
+          }
+          input, button, select, textarea {
+              font-family: inherit;
+              font-size: inherit;
+              line-height: inherit;
+          }
+          button, html input[type="button"], input[type="reset"], input[type="submit"] {
+              -webkit-appearance: button;
+              cursor: pointer;        
+          }
+          button, select {
+              text-transform: none;
+          }
+          button {
+              overflow: visible;
+          }
+          button, input, optgroup, select, textarea {
+              margin: 0;
+              font: inherit;
+              color: inherit;
+          }
+          * {
+              box-sizing: border-box;
+          }
+          * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+          }
+          
+      
+          
+          .card ul {position: relative;}
+          button {
+              -webkit-appearance: button;        
+              text-rendering: auto;
+              color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
+              letter-spacing: normal;
+              word-spacing: normal;
+              text-transform: none;
+              text-indent: 0px;
+              text-shadow: none;
+              display: inline-block;
+              text-align: center;
+              align-items: flex-start;
+              cursor: default;
+              background-color: -internal-light-dark-color(rgb(239, 239, 239), rgb(74, 74, 74));
+              box-sizing: border-box;
+              margin: 0em;
+              font: 400 13.3333px Arial;
+              padding: 1px 6px;
+              border-width: 2px;
+              border-style: outset;
+              border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
+              border-image: initial;
+          }
+          *{
+              padding: 0;
+              margin: 0;
+               }
+           @media screen and (max-width: 600px) {
+              .column {
+                width: 100%;
+                height: auto;
+              }
+            }
+           
+              header, ul, li {
+                  margin: 0;
+                  padding: 0;
+                  list-style: none;
+              }
+      
+              header, a{ 
+                  color: inherit;
+                  text-decoration: inherit;
+                  list-style: none;
+              }
+      
+              .menu-1{
+                  text-align: center;
+                  background-color: rgb(40, 0, 78) ;
+                  color: white;
+                  width: 100%;
+              }
+              .menu-1 ul{
+                  background-color: rgba(128, 0, 128, 0.562);
+              
+      
+              }
+              .menu-1 > ul {
+                  background-color: rgb(40, 0, 78) ;
+                  display: inline-block;
+                  border-radius: 5px;
+                  padding: 0 10;
+                  
+              }
+              .menu-1 > ul >li {
+                  display: inline-block;       
+              }
+      
+              .menu-1 li> a {
+                  /* background-color: red;  */
+                  padding: 10px;
+                  display: block;
+              }
+              .menu-1 li:hover >a {
+                  background-color: black;
+                  color: white;
+                  text-decoration: none;
+              }
+              .menu-1 li {
+                  position: relative;
+              
+              }
+              .menu-1 ul ul {
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+              }
+              .menu-1 li:hover>ul {
+                  display: block;
+              }
+              .menu-1, .on {
+                font-size: large;
+                z-index: 1;
+              }
+              .on{ font-size: small;}
+              .menu-2{          
+                background-color: rgb(40, 0, 78) ;
+                color: white;
+                width: 100%;          
+              }
+              .menu-2 ul{
+                float: right;
+              }
+              .menu-2 ul li{display: inline-block;}
+      
+              .footer {
+                  width: 100vw;
+                  display: block;
+                  overflow: hidden;
+                  padding: 70px 0;
+                  box-sizing: border-box;
+                  background-color: rgb(40, 0, 78);
+              }
+      
+              .inner_footer {
+                  display: block;
+                  margin: 0 auto;
+                  width: 1100px;
+                  height: 100%;
+              }
+      
+              .inner_footer .logo_container {
+                  width: 35%;
+                  float: left;
+                  height: 100%;
+                  display: block;
+              }
+      
+              .inner_footer .logo_container img {
+                  width: 30%;
+                  height: auto;
+              }
+      
+              .inner_footer .inner_third {
+                  width: calc(21.6666667% - 20px);
+                  max-width: 10px;
+                  float: left;
+                  height: 100%;
+              }
+      
+        
+      
+              .inner_footer .footer_third h1 {
+                  font-family: 'arial';
+                  font-size: 22px;
+                  color: rgb(239, 232, 255);
+                  display: block;
+                  width: 100%;
+                  margin-bottom: 20px;
+                  
+      
+              }
+              .inner_footer .footer_third p {
+                  font-family: 'arial';
+                  font-size: 14px;
+                  font-weight: 200;
+                  color: rgb(197, 172, 255);
+                  display: block;
+                  width: 100%;
+                  margin-bottom: 5px;
+                  padding-bottom: 0px;
+                
+              }
+              .help article > div {
+                border: 1px solid #dbdbdb;
+                height: 490.5px;
+            }
+      
+      
+            .service li {
+             float: none;
+            }
+            .service li {
+                border-right: 1;
+                height: 163px;
+            }
+            
+    </style>
+
+</head>
+
+
+<body>
+
+ <header> 
+    <nav class="menu-2"> 
+        <ul>
+            <li><a href="#">회원가입</a></li>&nbsp;&nbsp;
+            <li><a href="#">로그인</a></li>&nbsp;&nbsp;
+            <li><a href="#">마이페이지</a></li>&nbsp;&nbsp;
+        </ul>
+      </nav>
+
+      <nav class="menu-1"> 
+        <ul>
+            <li><a href="#">영화</a>
+                <ul class="on">
+                    <li><a href="#">무비차트</a></li>
+                    <li><a href="#">감상평</a></li>             
+                </ul>
+            </li>
+            <li><a href="#">예매</a>
+                <ul class="on">
+                    <li><a href="#">상영시간표</a></li>             
+                </ul>
+            </li>
+            <li><a href="#">극장</a>
+                <ul class="on">
+                    <li><a href="#">서 울</a></li>
+                    <li><a href="#">경 기</a></li>
+                    <li><a href="#">인 천</a></li>
+                </ul>
+            </li>
+            <li>
+              <img src="img/Lcb.png" width="50%" height="39px">
+            </li>
+            <li><a href="#">이벤트</a>
+                <ul class="on">
+                    <li><a href="#">포인트 멤버쉽</a></li>                    
+                </ul>
+            </li>
+            <li><a href="#">스토어</a>
+                <ul class="on">
+                    <li><a href="#">팝콘&스낵</a></li>                    
+                </ul>
+            </li>           
+        </ul>
+    </nav>
+  
+   </header> 
+
+  
+        
+                
+
+ <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+                    <!-- Indicators는 숨어있는 사진 개수 -->
+                 <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active" style="margin-right: 5px;"></li>
+                        <li data-target="#myCarousel" data-slide-to="1" style="margin-left:5px; margin-right: 5px;"></li>
+                        <li data-target="#myCarousel" data-slide-to="2" style="margin-left:5px;" ></li>
+                    </ol> 
+
+                    <!-- Wrapper for slides는 사진 영역 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+
+                            <a href="#" class="bando1">
+                                <img src="img/반도.jpg" alt="사진 1" style="width:33%;">
+                            </a>
+
+                            <a href="#">
+                                <img src="img/살아있다.jpg" alt="사진 2" style="width:33%;">
+                            </a>
+                            <a href="#">
+                                <img src="img/온워드.jpg" alt="사진 3" style="width:33%;">
+                            </a>
+                        </div>
+
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/밤쉘.jpg" alt="사진 4" style="width:33%;">
+                            </a>
+                      
+                            <a href="#"> 
+                                <img src="img/소년시절.jpg" alt="사진 5" style="width:33%;">
+                            </a>
+                            <a href="#">
+                                <img src="img/비바리움.jpg" alt="사진 6" style="width:33%;">
+                            </a>
+                        </div>
+
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/결백.jpg" alt="사진 7" style="width:33%;">
+                            </a>
+                            <a href="#">
+                                <img src="img/원데이.jpg" alt="사진 8" style="width:33%;">
+                            </a>
+                            <a href="#">
+                                <img src="img/지저.jpg" alt="사진 9" style="width:33%;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls <좌우 버톤> -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+
+
+
+    </script>
+
+    <!-- <footer></footer> -->
+
+
+</body>
+
+</html>

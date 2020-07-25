@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 1. 다음 radio 버톤을 클릭했을 때 "동의했습니다." 경고창을 띄우고 value값을 출력. -->
+    <input type="checkbox" onclick="check1(this)" value="1" >조항1
+    <input type="checkbox" onclick="check1(this)" value="2" >조항2
+    <input type="checkbox" onclick="check1(this)" value="3" >조항3
+    <input type="checkbox" onclick="check1(this)" value="4" >조항4
+    <input type="checkbox" onclick="check1(this)" value="5" >조항5
+
+
+
+<script>
+    function check1(a) {
+
+     /*    console.log(a.checked) */
+        if(a.checked) {
+            alert(a.value+"번으로 동의했습니다.");
+        }else {
+            alert(a.value+"번 취소합니다.");
+            return false;
+        }
+/*  console.log(a); */ 
+/*  console.log(a.value);  */
+
+    }
+</script>    
+
+    <hr>
+
+    <!-- 2. 버톤을 클릭했을 때 input 태그의 공백여백, 기억하기의 체크 여부를 확인 -->
+    ID: <input type="text" id = "id"> <br>
+    기억하기: <input type="checkbox" id="remember">
+    <button type="button" id="check2">확인</button>
+
+    <script>
+        var id = document.getElementById("id");
+        var remember = document.getElementById("remember");
+        var check2 = document.getElementById("check2");
+
+        check2.onclick = function() {
+          /*   console.log(id);
+            console.log(remember);
+            alert(""); */
+
+            console.log("value값: " +id.value);
+            console.log("checked여부: "+remember.checked);
+
+            if(id.value){
+                alert("입력되었습니다.")    
+            }else {
+                alert("공백입니다.")
+            }
+
+
+            if(remember.checked) {
+                alert("checked가 되었습니다.");
+            }else {
+                alert("checked가 안되었습니다.");
+            }
+
+        }
+    </script>
+
+</body>
+</html>

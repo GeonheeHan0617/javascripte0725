@@ -1,0 +1,85 @@
+
+    
+    .carousel-control.left{
+        background-image: 
+         linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+     }
+     .carousel-control.right{
+         background-image:
+         linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+     }
+ 
+     /* main배너1 */
+ 
+     .main-banner1{
+     background: linear-gradient(90deg,#0c151c 1.3125rem,transparent 1%) 50%,linear-gradient(#0c151c 1.3125rem,transparent 1%) 50%,#263747;
+     background-size: 1.5rem 1.5rem;
+     padding: 6rem 0;
+     color: #fff;
+ 
+     }
+ 
+     .banner-cap {text-align:  center;}
+ 
+     .prod-list {overflow: hidden; position: relative;}  /* col 속성이 float를 가지고 있기 때문에 부모요소 overflow hidden을 가져야 한다.*/
+     /* a테그가 inline 요소이기 때문에 이미지를 감싸지 못했다. */
+     .prod-list, .prod-link { border: 1px  solid grey   ; display: block; text-align: center;}
+ 
+     .prod-list, .prod-list > li[class*="col-"] {
+         padding : 5px;
+     }
+ 
+     .prod-link .arrow {
+         position: absolute;
+         bottom: 15px;
+         left: 15px;
+         display: block;
+         width: 70px;
+         height: 30px;
+         line-height: 30px;
+         color: ivory;
+         background-color: #aaacaf;
+     }
+ 
+     .prod-link:hover{ border-color: fuchsia; }
+     .prod-link > .hover { opacity: 0; width: 100px; background-color: hotpink; }
+     .prod-link:hover > .arrow{ opacity: 0; } /* link가 hover시에 .hover 클래스 투명도0 */
+     .prod-link:hover > .hover{ opacity: 1;    } /* link가 hover시에 .hover 클래스 투명도1 */
+
+     .detail-info {margin-bottom: 100px;}
+     .detail-info .title {font-size: 23px;}
+     .detail-info .price {border: 1px solid #ddd; border-bottom: 1px solid #ddd; font-size: 20px; padding: 10px;  }
+     .detail-info .deliver {color: rgb(73, 69, 69);}
+ 
+     .detail-control .order, .detail-control .price {overflow: hidden;}
+ 
+     .detail-control .price .left{ float: left; font-size: 20px; line-height: 10;}
+     .detail-control .price .right{float: right;font-size: 28px; line-height: 7;}
+     .detail-control .order button {float: left; width:50%; height: 60px; font-size: 18px; }
+ 
+     /* 뎃글 영역 */
+     /* 부모영역의 역할 */
+     .reply-wrap {padding :25px; background-color: #f5f5f5; border: 1px solid #111111;}
+     .reply-wrap .reply-image {position: absolute; top:25px; left:25px}
+     .reply-wrap .reply-content {padding-left: 40Px;}
+     .reply-wrap .reply-content .form-control {resize: vertical;  margin-bottom: 20px}
+     
+     /* 부모영역 */
+     .reply-wrap .reply-input .form-control {width: 195px; margin-bottom: 5px;}
+     .reply-group  {overflow: hidden; }
+     .reply-group .reply-input {float: left;}
+     .reply-group button{float: right;}
+     .form {padding: 50px;}
+     .reply-group button {width:110px; height: 70px; }
+ 
+     /*  */
+     .reply-content textarea {height: 50px; transition: height 0.3s ease-in-out;}
+     .reply-content textarea:focus {height: 150px;}
+     /*  */
+     .reply-group strong, .reply-group small{float: left;}
+     .reply-group a {float: right;}
+     
+ 
+
+     
+ 

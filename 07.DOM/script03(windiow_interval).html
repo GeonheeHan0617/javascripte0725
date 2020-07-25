@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgImg{
+            animation: fadeIn .5s linear;
+        }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+
+<div class="slide">
+    <img src="img/slide1.jpg" class="bgImg">
+</div>
+    <script>
+        var slide = document.querySelector(".slide");
+
+        var num =1;
+        function changeImg(){ //1. 즉시실행 함수 2.
+        /*console.log(!1); // count가 됨. */
+
+            //이미지 생성
+            var img = document.createElement("img");
+            // 1번째 방법
+           img.src = "img/slide"+ ++num +".jpg";  // num을 changeImg() 안에 만들면 1초마다 초기화됨
+            /* `helloworld ${dddd}`; */ //예시
+            // 2번째 방법 jsp에서는 위험한 방법
+           /*  img.src = `img/slide${++num}.jpg`; */
+
+            img.className ="beImg";
+
+            slide.removeChild(slide.children[0]);  //오타주의
+            slide.appendChild(img); //슬라이드의 자식으로 추가
+            
+            if(num === 4) num = 0; //num이 4가 되면 0로 초기화
+
+        } 
+
+        (function() { 
+
+                /*console.log(1); */ //f12개발자 도구 출력
+            setInterval(changeImg,1805); // 사람들이 보기 좋아하는 속도 
+            
+
+        }) ();
+    </script>
+
+</body>
+</html>

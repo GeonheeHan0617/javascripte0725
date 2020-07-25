@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="webstoryboy">
+	<meta name="description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
+	<meta name="keywords" content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기, 이미지 슬라이드">
+	<title>메가박스 사이트 코딩하기 : 영화 차트 이미지 슬라이드 반응형</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="assets/css/reset10.css">
+	<link rel="stylesheet" href="assets/css/style10.css">
+	<link rel="stylesheet" href="assets/css/swiper.css">
+
+	<!-- 파비콘 -->
+	<link rel="shortcut icon" href="assets/icons/LCB_icon.png">
+	<link rel="apple-touch-icon-precomposed" href="assets/icons/LCB_icon.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="96x96" href="assets/icons/LCB_icon.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/icons/LCB_icon.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="192x192" href="assets/icons/LCB_icon.png" />
+
+
+	<!-- 웹 폰트 -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+		rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+
+
+		}
+
+		.footer {
+			width: 100vw;
+			display: block;
+			overflow: hidden;
+			padding: 70px 0;
+			box-sizing: border-box;
+			background-color: rgb(40, 0, 78);
+		}
+
+		.inner_footer {
+			display: block;
+			margin: 0 auto;
+			width: 1100px;
+			height: 100%;
+		}
+
+		.inner_footer .logo_container {
+			width: 35%;
+			float: left;
+			height: 100%;
+			display: block;
+		}
+
+		.inner_footer .logo_container img {
+			width: 30%;
+			height: auto;
+		}
+
+		.inner_footer .inner_third {
+			width: calc(21.6666667% - 20px);
+			max-width: 10px;
+			float: left;
+			height: 100%;
+		}
+
+
+
+		.inner_footer .footer_third h1 {
+			font-family: 'arial';
+			font-size: 22px;
+			color: rgb(239, 232, 255);
+			display: block;
+			width: 100%;
+			margin-bottom: 20px;
+
+
+		}
+
+		.inner_footer .footer_third p {
+			font-family: 'arial';
+			font-size: 14px;
+			font-weight: 200;
+			color: rgb(197, 172, 255);
+			display: block;
+			width: 100%;
+			margin-bottom: 5px;
+			padding-bottom: 0px;
+
+		}
+	</style>
+
+</head>
+
+<body>
+	<!--
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="header clearfix">
+                    <h1>
+                        <a href="#">
+                            <em><img src="assets/img/logo.png" alt="MEGABOX"></em>
+                            <strong><img src="assets/img/logo-sub.png" alt="LIFE THEATER"></strong>
+                        </a>    
+                    </h1>
+                    <nav id="mNav">
+                        <h2 class="ir_so">메가박스 전체메뉴</h2>
+                        <a href="#" class="ham"><span></span></a>
+                    </nav>
+                    <nav class="nav">
+                        <ul class="clearfix">
+                            <li><a href="#">영화</a></li>
+                            <li><a href="#">큐레이션</a></li>
+                            <li><a href="#">영화관</a></li>
+                            <li><a href="#">특별관</a></li>
+                            <li><a href="#">스토어</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">로그인</a></li>
+                        </ul>
+                    </nav>    
+                </div>
+            </div>
+        </div>
+    </header>-->
+	<!-- //header -->
+
+
+
+
+	<!-- //banner -->
+
+
+	<section id="movie">
+		<div class="container">
+			<div class="row">
+				<h2 class="ir_so">영화 예매</h2>
+				<div class="movie">
+					<div class="movie_title">
+						<ul class="clearfix">
+							<li class="active"><a href="#">박스오피스</a></li>
+							<li><a href="#">최신개봉작</a></li>
+
+						</ul>
+					</div>
+					<div class="movie_chart">
+						<div class="swiper-container2">
+							<div class="chart_cont1 swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="poster">
+                                        <figure>
+                                            <img src="assets/img/반도.jpg" srcset="assets/img/반도.jpg 2x" alt="반도">
+                                        </figure>
+                                        <div class="rank"><strong>1</strong></div>
+
+                                    </div>
+                                    <div class="infor">
+                                        <h3><span class="icon a15 ir_pm">15세</span> <strong>반도</strong></h3>
+                                        <!-- 관람 설정 icon ( 1> all: 전체관람  2> a12: 12세 3> a15: 15tp 4> a19:19세-->
+                                        <div class="infor_btn">
+                                            <a href="#">상세보기</a>
+                                            <a href="#">예매하기</a>
+                                        </div>
+                                    </div>
+								</div>
+								<div class="swiper-slide">
+									<div class="poster">
+                                        <figure>
+                                            <img src="assets/img/살아있다.jpg" srcset="assets/img/살아있다.jpg 2x" alt="살아있다">
+                                        </figure>
+                                        <div class="rank"><strong>2</strong></div>
+
+                                    </div>
+                                    <div class="infor">
+                                        <h3><span class="icon a12 ir_pm">12세</span> <strong>살아있다</strong></h3>
+                                        <div class="infor_btn">
+                                            <a href="#">상세보기</a>
+                                            <a href="#">예매하기</a>
+                                        </div>
+                                    </div>
+								</div>
+								<div class="swiper-slide">
+									<div class="poster">
+                                        <figure>
+                                            <img src="assets/img/밤쉘.jpg" srcset="assets/img/밤쉘.jpg 2x"
+                                                alt="밤쉘: 세상을 바꾼 폭탄선언">
+                                        </figure>
+                                        <div class="rank"><strong>3</strong></div>
+
+                                    </div>
+                                    <div class="infor">
+                                        <h3><span class="icon a15 ir_pm">15세</span> <strong>밤쉘</strong></h3>
+                                        <div class="infor_btn">
+                                            <a href="#">상세보기</a>
+                                            <a href="#">예매하기</a>
+                                        </div>
+                                    </div>
+								</div>
+								<div class="swiper-slide">
+									<div class="poster">
+										<figure>
+											<img src="assets/img/소년시절.jpg" srcset="assets/img/소년시절.jpg 2x"
+												alt="소년시절의 너">
+										</figure>
+										<div class="rank"><strong>4</strong></div>
+
+									</div>
+									<div class="infor">
+										<h3><span class="icon a15 ir_pm">15세</span> <strong>소년시절의 너</strong></h3>
+										<div class="infor_btn">
+											<a href="#">상세보기</a>
+											<a href="#">예매하기</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!-- //chart_cont1-->
+
+						<div class="swiper-container2">
+							<div class="chart_cont2 swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="poster">
+										<figure>
+											<img src="assets/img/블루아워.jpg" srcset="블루아워.jpg 2x"alt="블루아워">
+										</figure>
+										<div class="rank"><strong>1</strong></div>
+									</div>
+									<div class="infor">
+										<h3><span class="icon a12 ir_pm">전체관람가</span> <strong>블루아워</strong></h3>
+										<div class="infor_btn">
+											<a href="#">상세정보</a>
+											<a href="#">예매하기</a>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+
+
+						<!-- //chart_cont4-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- //movie -->
+
+
+
+	<!-- 자바스크립트 라이브러리 -->
+	<script src="assets/js/jquery.min_1.12.4.js"></script>
+	<script src="assets/js/modernizr-custom.js"></script>
+	<script src="assets/js/ie-checker.js"></script>
+	<script src="assets/js/swiper.min.js"></script>
+	<script>
+		//배너 이미지 슬라이드
+		var swiper = new Swiper('.swiper-container', {
+			pagination: {
+				el: '.swiper-pagination',
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			autoplay: {
+				delay: 5000,
+			},
+		});
+
+		//영화차트 이미지 슬라이드
+		var swiper = new Swiper('.swiper-container2', {
+			slidesPerView: 4,
+			spaceBetween: 24,
+			mousewheel: {
+				invert: true,
+			},
+			keyboard: {
+				enabled: true,
+				onlyInViewport: false,
+			},
+			autoplay: {
+				delay: 6000,
+			},
+			breakpoints: {
+				600: {
+					slidesPerView: 1.4,
+					spaceBetween: 24
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 24
+				},
+				960: {
+					slidesPerView: 3,
+					spaceBetween: 24
+				}
+			}
+		});
+
+		//영화차트 탭 메뉴
+		var movBtn = $(".movie_title > ul > li");
+		var movCont = $(".movie_chart > div");
+
+		movCont.hide().eq(0).show();
+
+		movBtn.click(function (e) {
+			e.preventDefault();
+			var target = $(this);
+			var index = target.index();
+			movBtn.removeClass("active");
+			target.addClass("active");
+			movCont.css("display", "none");
+			movCont.eq(index).css("display", "block");
+		});
+	</script>
+
+	<footer>
+
+
+		<!-- footer-bottom -->
+		<div class="footer">
+			<div class="inner_footer">
+				<div class="logo_container">
+					<img src="img/lcb1.png">
+				</div>
+				<div class="footer_third">
+
+					<h1>LCB : CINEMA</h1>
+					<p>서울특별시 강남구 (역삼동, 제이슨타워)</p>
+					<p>ARS 1234-5678 || 대표자명: 홍길동</p>
+					<p> 사업자등록번호 123-45-67890 || 통신판매업신고번호 제 001호</p>
+					<p class="copy">COPYRIGHT © Mr.Hong , LCB_engineering</p>
+				</div>
+
+
+
+			</div>
+		</div>
+
+	</footer>
+</body>
+
+</html>

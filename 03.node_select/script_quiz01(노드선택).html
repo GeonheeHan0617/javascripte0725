@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <form> 
+        좌석
+       
+        <input type="checkbox" name="seat" value="1">1
+        <input type="checkbox" name="seat" value="2">2
+        <input type="checkbox" name="seat" value="3">3
+        <input type="checkbox" name="seat" value="4">4
+        <input type="checkbox" name="seat" value="5">5
+        <input type="checkbox" name="seat" value="6">6
+        <input type="checkbox" name="seat" value="7">7
+        <input type="checkbox" name="seat" value="8">8
+        <input type="checkbox" name="seat" value="9">9
+        <input type="checkbox" name="seat" value="10">10
+        
+        <br>
+        <button type="button" id="btn">예약</button>
+
+    </form>
+
+    <!-- 예약버튼 클릭시 좌석이 취소 한개이상 체크되어 있지 않으면 경고창을 띄우는 코드를 작성하시오
+    만약 체크란 태그의 value값은 배열로 생성해서 JSON 형태의 문자열로 변경 -->
+
+    <!-- 마무리 안되었음 -->
+
+    <script>
+        /* 첫번째 방법 */
+        var bt = document.getElementById("btn"); // form 안에 있는 id 부르기
+        var tag1 = document.getElementsByName("seat"); //
+        bt.onclick=function(){
+            
+            var arr = new Array();
+            
+            for(var i=0; i<tag1.length; i++){
+                if(tag1[i].checked){
+                    arr.push(tag1[i].value);
+                    /* console.log(tag1[i].checked); */
+                }
+            }
+           /*  console.log(arr); */
+
+            if(arr.length ==0){
+                alert("체크를 해주세요");
+                return; //함수 종료
+            }else{
+                // console.log(arr);
+                var result = JSON.stringify(arr);
+                console.log(result); 
+               /*  var data = {"arr":tag1};
+                console.log(JSON.stringify(data)); */
+            }
+        }
+      
+    </script>
+
+ <!--    <script>
+        /* form으로 가져오는 방법은 위험한 방법임 checkbox 때문에 가능함 */
+        document.querySelectorAll("input[name='seat']");
+
+    </script> -->
+        
+    
+</body>
+</html>

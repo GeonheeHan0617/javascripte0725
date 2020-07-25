@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    table {border-spacing: 0px; border-collapse: collapse;}
+    table thead tr th {border: 1px solid #777;}
+    table tbody tr td {border: 1px solid #777777;}
+</style>
+
+</head>
+<body>
+    
+    <!-- add list -->
+
+    <table>
+        <thead>
+            <!-- 제목영역 -->
+            <tr>
+                <th>교사</th> <!-- 제목 태그 -->
+                <th>훈련과목</th> <!-- 제목 태그 -->
+                <th>딩딤자</th> <!-- 제목 태그 -->
+                <th>훈련내용</th> <!-- 제목 태그 -->
+            </tr>
+        </thead>
+        <tbody class="todoList">
+            <!-- 내용영역 -->
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text" ></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text" ></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        window.onload = function() {
+
+            
+            //1개추가하기
+/*             var count = 0 ; 
+            var add = document.getElementById("addList");
+
+            add.onclick =function() {
+                var tr = document.createElement("tr");
+
+               var list1 = document.createTextNode(++count);
+                tr.appendChild(list1); 
+                tr.innerHTML="text";
+                 console.log(list1);  표시됨
+                document.querySelector(".todoList").appendChild(tr) ;
+            }
+ */
+
+   /*          add.onclick = function() {
+                var tr = document.createElement("tr");
+                for(var j = 1; j<=1; j++) {
+                    var td =document.createElement("td");
+                    for(var i = 1; i<=4; i++) {
+                        if(i == 1){
+                            td.innerHTML="<input type='text' size='3'>" ;                          
+                        }else if (i == 3){
+                            td.innerHTML="<input type='text' size='5'>";
+                        }
+                    }
+                }
+            } */
+
+            // 5개 씩 추가
+
+           
+
+
+
+        }
+    </script>
+    <button type="button" id="addList"> 1개 추가하기</button>
+    <button type="button" id="addLists">5개 추가하기</button>
+    <button type="button" id="deleteList">1개 삭제하기</button>
+
+
+<script>
+
+
+    var addList = document.getElementById("addList");
+    var addLists = document.getElementById("addLists");
+    var deleteList = document.getElementById("deleteList");
+
+    var todoList = document.querySelector(".todoList");
+    addList.addEventListener("click", createList);
+    addLists.addEventListener("click", createLists);
+    deleteList.removeEventListener("click", removeList);
+
+    function createList() {
+        var tr = document.createElement("tr"); //tr 생성
+
+        var td = document.createElement("td"); //td 생성//1
+        var str = "<input type='text' size='3'>"
+        td.innerHTML = str;
+        tr.appendChild(td); // tr에 추가
+
+        var td = document.createElement("td"); //td 생성//2
+        var str = "<input type='text'>"
+        td.innerHTML = str;
+        tr.appendChild(td); // tr에 추가
+
+        var td = document.createElement("td"); //td 생성//3
+        var str = "<input type='text' size='5'>"
+        td.innerHTML = str;
+        tr.appendChild(td); // tr에 추가
+
+        var td = document.createElement("td"); //td 생성//4
+        var str = "<input type='text' >"
+        td.innerHTML = str;
+        tr.appendChild(td); // tr에 추가  //4
+
+
+
+        //todoList아래 tr 추가
+        todoList.appendChild(tr);
+        /*    document.querySelector(".todoList").appendChild(tr); */
+    }
+
+    function createLists() { 
+/*         for (var i = 1; i <= 5; i++) {
+
+    
+            var tr = document.createElement("tr"); //tr 생성
+
+            var td = document.createElement("td"); //td 생성//1
+            var str = "<input type='text' size='3'>"
+            td.innerHTML = str;
+            tr.appendChild(td); // tr에 추가
+
+            var td = document.createElement("td"); //td 생성//2
+            var str = "<input type='text'>"
+            td.innerHTML = str;
+            tr.appendChild(td); // tr에 추가
+
+            var td = document.createElement("td"); //td 생성//3
+            var str = "<input type='text' size='5'>"
+            td.innerHTML = str;
+            tr.appendChild(td); // tr에 추가
+
+            var td = document.createElement("td"); //td 생성//4
+            var str = "<input type='text' >"
+            td.innerHTML = str;
+            tr.appendChild(td); // tr에 추가  //4
+
+            
+            todoList.appendChild(tr);
+
+            }
+            }
+ */
+         
+        for (var j = 1; j <= 5; j++) {
+            var tr = document.createElement("tr");
+            for (var i = 1; i <= 4; i++) {
+                var td = document.createElement("td");
+                if (i == 1) {
+                    td.innerHTML = "<input type='text' size='3'>";
+                } else if (i == 3) {
+                    td.innerHTML = "<input type='text' size='5'>";
+                } else {
+                    td.innerHTML = "<input type='text'>";
+                }
+                tr.appendChild(td);
+            }
+
+            todoList.appendChild(tr);
+
+
+            // 이중 for 구문 if 문으로 작업해보기 <완성>
+        }
+
+    }
+
+    function removeList() { //지우는 작업
+        var tr = document.deleteElement("tr"); //tr 
+
+        var td = document.deleteElement("td"); //td 생성//1
+        var str = "<input type='text' size='3'>"
+        td.innerHTML = str;
+        tr.removeChild(td); // tr에 추가
+
+        var td = document.deleteElement("td"); //td 생성//2
+        var str = "<input type='text'>"
+        td.innerHTML = str;
+        tr.removeChild(td); // tr에 추가
+
+        var td = document.deleteElement("td"); //td 생성//3
+        var str = "<input type='text' size='5'>"
+        td.innerHTML = str;
+        tr.removeChild(td); // tr에 추가
+
+        var td = document.deleteElement("td"); //td 생성//4
+        var str = "<input type='text' >"
+        td.innerHTML = str;
+        tr.removeChild(td); // tr에 추가  //4
+
+        
+        todoList.removeChild(tr);
+            
+
+    }
+
+</script>
+
+
+</body>
+</html>

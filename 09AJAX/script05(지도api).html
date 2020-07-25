@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+    #map {height: 700px; width: 50%; }
+     </style>
+
+</head>
+<body>
+
+    <h3>My Google Maps Demo</h3>
+   
+    <div id="map"></div>
+    <script>
+
+function initMap() {
+    
+    //AIzaSyBcnAjF8iv_cC41hYEb20Iqs4cfGng-zzw 키값
+
+  var uluru = {lat: 37.4955, lng: 127.0319};
+
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+
+  var marker = new google.maps.Marker({position: uluru, map: map});}
+  
+    </script>
+
+<script 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcnAjF8iv_cC41hYEb20Iqs4cfGng-zzw&callback=initMap"
+>
+</script>
+    
+</body>
+</html>

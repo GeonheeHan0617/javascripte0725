@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>자바스크립트 카운트</h2>
+
+    <input type="text" value="0" id="result">
+    <button type="button" onclick="alert~~~~~~~~~">+</button> <!--  //calc(this) 추가함 -->
+    <button type="button" onclick="calc(this)">-</button> <!--  //calc(this) 추가함 -->
+
+    <script>
+        function calc(oper){
+            var result = document.getElementById("result"); // result 창 
+         /*    var plus = oper.innerHTML;    // 여기까지 생각못함.
+            var minus = oper.innerHTML;  // 여기까지 생각못함. */
+            if(oper.innerHTML === "+") { // +button 일때
+                result.value++; // 1씩 증가
+            }else{ //- button일때
+                
+                if(result.value <= 0) {  // 0보다 작을 경우 내려가지 않게 함
+                    alert("0보다 작을 수 없습니다.");
+                    return;
+                }else {
+                    result.value--; // 1씩 감소
+                }
+            }
+
+            console.log(plus,minus);
+
+        }
+
+    </script>
+
+</body>
+</html>

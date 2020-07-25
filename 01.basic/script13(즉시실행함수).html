@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function test1() {
+            console.log("test01함수");
+        }
+        function test2() {
+            console.log("test02함수");
+        }
+
+        (function(a, b, c){
+            console.log ("즉시실행 함수 호출");
+            console.log(a,b,c);                
+            test1();
+            test2();
+
+                    /*             alert("실행"); */
+
+        }) (1 ,2, 3); //(); 호출구문
+    </script>
+
+</body>
+</html>

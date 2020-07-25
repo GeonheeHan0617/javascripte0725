@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        window.onload =function() {
+            var ok1 = document.getElementById("ok1"); // ok1~ ok3 바로 이동함
+            ok1.addEventListener("click",googleClick);
+
+            var ok2 = document.getElementById("ok2");
+            ok2.addEventListener("click",naverClick);
+
+            var ok3 = document.getElementById("ok3"); 
+            ok3.addEventListener("click",daumClick);
+
+            var ok4 = document.getElementById("ok4");       // ok4~ ok6 확인 및 취소 하고 이동함
+        
+            var ok5 = document.getElementById("ok5");
+
+            var ok6 = document.getElementById("ok6");
+
+        function googleClick() {
+            alert("구글로 이동");
+            location.href="https://www.google.com";
+        }
+        function naverClick() {
+            alert("네이버로 이동합니다.");
+            location.href="https://www.naver.com";
+        }
+
+        function daumClick() {
+            alert("다음으로 이동합니다.");
+            location.href="https://www.daum.net";
+        }
+
+        ok4.onclick = function () {
+            if(confirm("github로 이동하시겠습니까?")) {
+                location.href="https://github.com";
+            }else {
+                alert("github로 이동안하고 재자리로 돌아갑니다.")
+            }
+        } 
+        ok5.onclick = function(){
+            if(confirm("w3schools로 이동하시겠습니까?")){
+                location.href="https://www.w3schools.com";
+            }else{
+                alert("w3school로 안가고 재자리로 돌아갑니다.")
+            }
+        }
+        ok6.onclick = function() {
+            if(confirm("위키백과로 이동하시겠습니까?")) {
+                location.href="https://ko.wikipedia.org/";
+            }else{
+                alert("재자리로 돌아갑니다.");
+            }
+        }
+    }
+    </script>
+    <hr>
+    
+
+
+    <button type="button" id = "ok1">구글로 이동</button>
+    <button type="button" id = "ok2">네이버로 이동</button>
+    <button type="button" id = "ok3">다음으로 이동</button>
+    <hr>
+    <button type="button" id = "ok4">github로 이동</button>
+    <button type="button" id = "ok5">w3school로 이동</button>
+    <button type="button" id = "ok6">위키백과로 이동</button>
+</body>
+</html>

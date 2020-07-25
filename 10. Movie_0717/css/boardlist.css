@@ -1,0 +1,13 @@
+.prod-nike-inner img{ width: 100%;}
+
+.prod-content > .info > span{display: block;}
+
+.prod-content {overflow: hidden; } /* 상자배치 */
+
+.prod-content > .info{float: left ;}
+.prod-content > .info{float: right;}
+
+.prod-nike-inner .prod-color {opacity: 0; transition: all 1.5s ease-in-out; margin-top: -42px;}
+.prod-nike-inner:hover .prod-color {opacity: 1;}
+.prod-nike-inner .prod-color > ul {overflow: hidden;}
+.prod-nike-inner .prod-color > ul > li {float: left; width: 42px;}

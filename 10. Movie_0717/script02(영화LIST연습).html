@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0; }
+        ul, li {list-style: none;}
+        .movieList {overflow: hidden; width: 80%; margin: 0 auto; }
+        .movieList .movie {float: left; width: 33.3333%; height: 300px;position: relative;}
+        .movie img {position: absolute; top: 0px; left: 0px; width: 100px;}
+        .movie .inner {padding-left: 100px ;}
+        .movie .genres li {display: inline-block; margin-left: 5px; }
+        .movie p {overflow: scroll; height: 150px; }
+    </style>
+</head>
+<body>
+    <div align= "center">
+        <h2>무비리스트</h2>
+    </div>
+    <div class="movieList2">
+    
+       
+ 
+    </div>
+
+    <script>
+        fetch("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=b5d91eb2e98a1a4f4763bbfcab14aea2&curPage=1").then(function(response){
+                /* console.log(response); */
+       
+            if(response.status !== 200){
+                alert("서버와의 통신에 실패했습니다.");
+                return;
+            }else{
+                return response.json();
+            }
+
+        }).then(function(jsondata){
+            console.log(jsondata);
+            console.log(jsondata.movieListResult);
+            console.log(jsondata.movieListResult.movieList[i]);
+
+            var List = jsondata.movieListResult.movieList;
+            var movieList2 = document.querySelector(".movieList2");
+
+            var tag = "";
+            for (var i= 0; i<List.length; i++) {
+                var movieNm = List[i].movieNm;
+                var prdtYear = List[i].prdtYear;
+                var repNationNm = List[i].repNationNm;
+                console.log(movieNm);
+                console.log(prdtYear);
+         
+             tag += '<div class="movie">';
+              
+                tag += '<div class="inner">';
+                tag += '<h3 class="movieNm">'+movieNm+'</h3>'
+                tag += '<h3 class="prdtYear">'+"계봉한 년도: "+prdtYear+'</h3>'
+                tag += '<h3 class"repNationNm">'+"계봉한 국가이름:"+repNationNm+'</h3>'
+                tag += '<hr>'
+                tag += '</div>';
+                tag += '</div>';
+
+            }
+                movieList2.innerHTML = tag;
+            console.log(tag);
+
+        })
+
+
+
+
+    </script>
+ 
+   
+
+</body>
+</html>

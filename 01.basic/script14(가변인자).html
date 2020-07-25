@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <script>
+
+        var result = func1(1,2,3,"hello",5,6,7,8,9,"안녕",[1,2,3]);
+
+        // 자바스크립트의 매개변수는 큰 의미가 없습니다. 단순히 인자값이 들어오는 것에 이름을 붙어 사용하는 형태
+        function func1(a,b) {
+
+            console.log("함수1 실행");
+            console.log(arguments); //result 값이 나옴
+            console.log(arguments[0]); //1
+            console.log(arguments[3]);  // hello
+            console.log(arguments[10]); //[1,2,3] 배열
+            console.log(arguments[10,2]); //3
+            return a+b; 
+        }
+        </script>   
+
+        <script>
+            var num1 = 50;  
+            if(num1 === 50 ){
+            var num1 = 60;
+            }
+            alert("num 1 은 ?" + num1);
+            var num2 = 50;
+            function add(){
+            var num2 = 60;
+            var num2 = 70; //가능
+            }
+            add();
+            alert("num 2 는 ?" + num2);
+
+        
+        </script>
+
+</body>
+</html>

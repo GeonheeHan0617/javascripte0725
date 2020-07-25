@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- 쿠키.js -->
+    <script src ="popup.js"></script>
+</head>
+<body>
+    
+    
+    <h2>메인화면</h2>
+
+    <script>
+        window.onload = function () {
+
+            // mainPopup 쿠키가 없는 경우에 팝업창 실행
+            if (!getCookie("mainPopup")) { //false일때 실행
+                window.open("popup.html", "메인팝업창", "width=300, height=300, top=200, left=200");
+                 }
+            }
+
+            getCookie();
+     /*        // 쿠키 확인 함수
+            function getCookie(name) {
+
+                // 쿠키를 얻는다. 
+                var cookies = document.cookie.split("; ");
+                console.log(cookies);
+                for (var i in cookies) {
+                    if (cookies[i].search(name) != -1) { //!= -1 찾았다는 의미
+                        return true; //찾은 의미로 true 반환
+                    }
+                }
+            } */
+     
+    </script>
+</body>
+</html>

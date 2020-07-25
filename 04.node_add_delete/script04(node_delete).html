@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+
+            /* var str=""; */
+            var count = 0; // count는 전역변수 밖으로 있어야한다.
+            var add = document.getElementById("add");
+            add.onclick = function() {
+
+/*          var count = 0 ; */
+         //노드 생성
+         var li = document.createElement("li");
+         var a = document.createElement("a");
+         var text = document.createTextNode(++count);
+
+
+         //node를 자식으로 추가
+         a.appendChild(text);
+         a.href = "https://www.naver.com";
+         li.appendChild(a);
+
+       /*    console.log(li); 
+         console.log(a);
+         console.log(text); */
+
+         document.querySelector(".list").appendChild(li);  // 브라우져에 추가되면서 표시됨 ;;;; 
+  
+
+
+            //삭제
+
+            var remove = document.getElementById("remove");
+            remove.onclick = function () {
+                //removeChild는 (삭제할 노드) 사용하기전에 부모노드를 얻습니다.
+                var list = document.querySelector(".list");
+              /*   console.log(list);
+                console.log(list.childNodes);//자식 노드앞에 숭은 text도 가져옵니다.
+                console.log(list.childNodes[1]);
+                list.removeChild(list.childNodes[1]);  */  // list의 자식노드 삭제
+                
+                // children은 공백을 제외하고 자식에 포함된 노드만 가져옴
+                console.log(list.children);
+                list.removeChild(list.children[0]);
+            
+            }
+        }
+    }
+    </script>
+
+        <button type="button" id="add">추가</button>
+        <button type="button" id="remove">삭제</button>
+
+    <ul class="list">
+
+    </ul>
+</body>
+</html>

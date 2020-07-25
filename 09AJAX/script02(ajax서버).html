@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0; }
+        ul, li {list-style: none;}
+        .movieList {overflow: hidden; width: 80%; margin: 0 auto; }
+        .movieList .movie {float: left; width: 33.3333%; height: 300px;position: relative;}
+        .movie img {position: absolute; top: 0px; left: 0px; width: 100px;}
+        .movie .inner {padding-left: 100px ;}
+        .movie .genres li {display: inline-block; margin-left: 5px; }
+        .movie p {overflow: scroll; height: 150px; }
+    </style>
+
+</head>
+<body>
+
+
+<div align= "center">
+    <h2>무비리스트</h2>
+</div>
+<div class="movieList">
+    <!-- <div class="movie">
+        <img src="https://yts.mx/assets/images/movies/buster_1988/medium-cover.jpg">
+        <div class="inner">
+            <h3 class="title">제목</h3>
+            <h3 class="year">년도</h3>
+            <ul class="genres">
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+            </ul>
+            <p class="summary">내용</p>
+        </div>
+    </div>
+   
+    </div>
+    <div class="movie">
+        <img src=#>
+        <div class="inner">
+            <h3 class="title">제목</h3>
+            <h3 class="year">년도</h3>
+            <ul class="genres">
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+            </ul>
+            <p class="summary">내용</p>
+        </div>
+    </div> -->
+</div>
+
+
+
+    <script>
+        // ajax연습 사이트 //https://yts.mx/api
+        fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating").then(function(response) {
+         /*    console.log(response); */
+            if(response.status !== 200){
+                alert("서버와의 통신에 실패했습니다.");
+                return;
+            }else{
+                return response.json();
+            }
+
+        }).then(function(jsondata) {
+           /* console.log(jsondata); */
+            console.log(jsondata.data);
+           
+            console.log(jsondata.data.movies[i]);
+      /* console.log(movieList); */
+            var List = jsondata.data.movies;
+            var movieList = document.querySelector(".movieList");
+            
+         
+            var tag = "";
+            for (var i = 0; i < List.length; i++) {
+                var img = List[i].medium_cover_image;
+                var title = List[i].title;
+                var year = List[i].year;
+                var genres =List[i].genres;
+                var summary = List[i].summary;
+            /* 
+                console.log(img);
+                console.log(title);
+                console.log(year);
+                console.log(genres);
+                console.log(summary); */
+                tag += '<div class="movie">';
+                tag += '<img src="' + img + '">';
+                tag += '<div class="inner">';
+                tag += '<h3 class="title">'+title+'</h3>'
+                tag += '<h3 class="year">'+year+'</h3>'
+                tag += '<ul class="genres">'
+                tag += '<ul class ="genres">'
+               /*      for(var j in genres) {
+                        tag += '<li>' +genres[j] + '</li>' */
+                    for(var j of genres) {
+                        tag += '<li> #' +j + '</li>'
+                    }
+                tag += '</ul>';
+                tag += '<p class="summary">'+summary+'</p>'
+                tag += '</div>';
+                tag += '</div>';
+
+                
+            }
+            movieList.innerHTML = tag;
+            console.log(tag);
+
+        })
+    
+
+    </script>
+</body>
+</html>

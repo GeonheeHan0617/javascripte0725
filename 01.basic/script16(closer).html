@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+/*         function func() {
+            var a ="홍길동";
+        }       //여기서 a는 해제
+        console.log(a); //애러
+ */
+        function func() {
+            var a = "홍길동";
+            console.log(a+"a값입니다. 위에요"); 
+
+           /*  var result = function () {
+
+                console.log(a+"a값입니다.안쪽입니다."); 
+                return a;
+            }
+          
+          console.log(result+"a값입니다. 아래에요"); 
+            return result ; */
+            return function() {
+                return a;
+            }
+
+        }
+
+
+        var b = func(); 
+        console.log(b); // 함수 자체 반환
+        console.log(b() );  // 함수 실행시 a의 자원이 해제 되지 않느다.
+        //closer - 내부 함수 (익명함수) 가 func1() 클로즈 할 수 있는 key  를 가지고 있다.
+        // 외부함수 밖에서 내부 함수가 호출 되더라도, 외부함수의 ㅂ지역변수에 접근이 가능하다. 
+        // 이런 함수들을 closer(클로저) 라고 합니다.
+
+
+
+            /* 결과값2 :
+                홍길동a값입니다. 위에요
+                ƒ () {
+                    return a;
+                    }
+                홍길동 */
+
+
+            // 결과값1 :
+            /* ƒ () {
+                console.log(a+"a값입니다.안쪽입니다."); 
+                return a; }
+
+                홍길동
+                */
+
+
+    </script>
+
+
+
+</body>
+</html>
